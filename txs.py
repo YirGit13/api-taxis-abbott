@@ -65,7 +65,8 @@ def optimizar_rutas_empleados(empleados):
                         "Lat": emp["DirecciónLAT"],
                         "Lon": emp["DirecciónLONG"],
                         "Fecha": emp["Fecha"],
-                        "Hora": emp["Hora entrada"]
+                        "Hora": emp["Hora entrada"],
+			"Title": emp["Title"]
                     })
             else:
                 for emp in grupo:
@@ -77,7 +78,8 @@ def optimizar_rutas_empleados(empleados):
                         "Lat": emp["DirecciónLAT"],
                         "Lon": emp["DirecciónLONG"],
                         "Fecha": emp["Fecha"],
-                        "Hora": emp["Hora entrada"]
+                        "Hora": emp["Hora entrada"],
+			"Title": emp["Title"]
                     })
         else:
             emp = grupo[0]
@@ -89,7 +91,8 @@ def optimizar_rutas_empleados(empleados):
                 "Lat": emp["DirecciónLAT"],
                 "Lon": emp["DirecciónLONG"],
                 "Fecha": emp["Fecha"],
-                "Hora": emp["Hora entrada"]
+                "Hora": emp["Hora entrada"],
+		"Title": emp["Title"]
             })
         grupo_id += 1
 
