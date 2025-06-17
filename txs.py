@@ -63,7 +63,8 @@ def optimizar_rutas():
                 "Lat": emp["DirecciónLAT"],
                 "Lon": emp["DirecciónLONG"],
                 "Fecha": emp["Fecha"],
-                "Hora": emp["Hora entrada"]
+                "Hora": emp["Hora entrada"],
+		"Title": emp["Title"]
             })
         grupo_id += 1
 
