@@ -90,16 +90,24 @@ def optimizar_rutas():
                 ruta = generar_ruta_google(chunk) if len(chunk) > 1 else chunk
                 for orden, emp in enumerate(ruta, start=1):
                     resultados.append({
-                        "Grupo": grupo_id,
-                        "Orden": orden,
-                        "Nombre": f"{emp['First Name']} {emp['Last Name']}",
-                        "Email": emp["Work Email"],
-                        "Lat": emp["DirecciónLAT"],
-                        "Lon": emp["DirecciónLONG"],
-                        "Fecha": emp["Fecha"],
-                        "Hora": emp["Hora"],
-                        "TipoEvento": emp["TipoEvento"],
-                        "Title": emp["Title"]
+    			"Grupo": grupo_id,
+    			"Orden": orden,
+    			"Nombre": f"{emp.get('First Name', '')} {emp.get('Last Name', '')}",
+    			"Email": emp.get("Work Email"),
+    			"Lat": emp.get("DirecciónLAT"),
+    			"Lon": emp.get("DirecciónLONG"),
+    			"Fecha": emp.get("Fecha"),
+    			"Hora": emp.get("Hora"),
+    			"TipoEvento": emp.get("TipoEvento"),
+    			"Title": emp.get("Title"),
+    			"Hora Ingreso": emp.get("Hora entrada"),
+    			"Hora salida": emp.get("Hora Salida"),
+    			"Turno": emp.get("Schedule"),
+    			"Ruta": emp.get("dirección"),
+    			"Departamento": emp.get("Cost Center Desc"),
+    			"CC": emp.get("Cost Center ID"),
+    			"Supervisor": emp.get("Manager Name"),
+    			"Justificación": emp.get("Razon de Asignacion")
                     })
                 grupo_id += 1
 

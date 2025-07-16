@@ -1,0 +1,85 @@
+import requests
+import json
+
+url = "https://api-taxis-abbott.onrender.com/optimizar"
+
+empleados = [
+    {
+        "Title": "Empleado A",
+        "First Name": "Juan",
+        "Last Name": "Pérez",
+        "Work Email": "juan@empresa.com",
+        "Hora entrada": "18:00",
+        "Hora Salida": "22:00",
+        "Fecha": "2025-05-30",
+        "Razon de Asignacion": "Overtime",
+        "Asignado por": "Supervisor X",
+        "DirecciónLAT": 10.0143,
+        "DirecciónLONG": -83.9769
+    },
+    {
+        "Title": "Empleado B",
+        "First Name": "Ana",
+        "Last Name": "Gómez",
+        "Work Email": "ana@empresa.com",
+        "Hora entrada": "18:00",
+        "Hora Salida": "21:00",
+        "Fecha": "2025-05-30",
+        "Razon de Asignacion": "Overtime",
+        "Asignado por": "Supervisor Y",
+        "DirecciónLAT": 10.0147,
+        "DirecciónLONG": -83.9766
+    },
+    {
+        "Title": "Empleado C",
+        "First Name": "Luis",
+        "Last Name": "Martínez",
+        "Work Email": "luis@empresa.com",
+        "Hora entrada": "18:00",
+        "Hora Salida": "21:00",
+        "Fecha": "2025-05-30",
+        "Razon de Asignacion": "Overtime",
+        "Asignado por": "Supervisor Z",
+        "DirecciónLAT": 10.0715,
+        "DirecciónLONG": -84.1183
+    },
+    {
+        "Title": "Empleado D",
+        "First Name": "María",
+        "Last Name": "Rodríguez",
+        "Work Email": "maria@empresa.com",
+        "Hora entrada": "16:00",
+        "Hora Salida": "23:00",
+        "Fecha": "2025-05-30",
+        "Razon de Asignacion": "Overtime",
+        "Asignado por": "Supervisor X",
+        "DirecciónLAT": 10.0736,
+        "DirecciónLONG": -84.1226
+    },
+    {
+        "Title": "Empleado E",
+        "First Name": "Carlos",
+        "Last Name": "Fernández",
+        "Work Email": "carlos@empresa.com",
+        "Hora entrada": "16:00",
+        "Hora Salida": "23:00",
+        "Fecha": "2025-05-30",
+        "Razon de Asignacion": "Overtime",
+        "Asignado por": "Supervisor Y",
+        "DirecciónLAT": 10.0140,
+        "DirecciónLONG":  -83.9763
+    }
+]
+
+headers = {
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, data=json.dumps(empleados), headers=headers)
+
+print("Código de respuesta:", response.status_code)
+try:
+    print("Respuesta JSON:", response.json())
+except Exception as e:
+    print("Error al interpretar JSON:", e)
+    print("Texto de respuesta:", response.text)
